@@ -1,0 +1,36 @@
+{
+  "use": {
+    "headless": true,
+    "viewport": { "width": 1280, "height": 720 },
+    "ignoreHTTPSErrors": true,
+    "screenshot": "only-on-failure",
+    "video": "retain-on-failure"
+  },
+  "projects": [
+    {
+      "name": "chromium",
+      "use": { "browserName": "chromium" }
+    },
+    {
+      "name": "firefox",
+      "use": { "browserName": "firefox" }
+    },
+    {
+      "name": "webkit",
+      "use": { "browserName": "webkit" }
+    }
+  ],
+  "testDir": "./Features",
+  "timeout": 30000,
+  "expect": {
+    "timeout": 5000
+  },
+  "fullyParallel": true,
+  "forbidOnly": true,
+  "retries": 2,
+  "workers": 4,
+  "reporter": [
+    ["html"],
+    ["json", { "outputFile": "test-results.json" }]
+  ]
+}
