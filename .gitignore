@@ -17,7 +17,7 @@ TestResults/
 .vs/
 *.userprefs
 *.pidb
-*.config
+App.config
 *.ncrunchproject
 *.ncrunchsolution
 *.DotSettings.user
