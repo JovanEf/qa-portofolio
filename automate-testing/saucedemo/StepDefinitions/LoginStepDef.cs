@@ -45,16 +45,8 @@ namespace SauceDemo.Tests.StepDefinitions
         [Then(@"user should sees error message ""(.*)"" on Login page")]
         public async Task ThenUserShouldSeesErrorMessageOnLoginPage(string expectedMessage)
         {
-            var errorText = await _loginPage.GetErrorMessageText();
-            if (!string.IsNullOrEmpty(expectedMessage))
-            {
-                Assert.Contains(expectedMessage, errorText);
-            }
-            else
-            {
-                var isErrorVisible = await _loginPage.IsErrorMessageVisible();
-                Assert.True(isErrorVisible);
-            }
+            var actualMessage = await _loginPage.GetErrorMessageText();
+            Assert.Equal(expectedMessage, actualMessage);
         }
 
         [Then(@"user should remain on the Login page")]

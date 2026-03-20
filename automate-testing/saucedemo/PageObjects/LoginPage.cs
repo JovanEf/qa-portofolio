@@ -36,18 +36,9 @@ namespace SauceDemo.Tests.PageObjects
             await LoginButton.ClickAsync();
         }
 
-        public async Task<bool> IsErrorMessageVisible()
-        {
-            return await ErrorMessage.IsVisibleAsync();
-        }
-
         public async Task<string> GetErrorMessageText()
         {
-            if (await IsErrorMessageVisible())
-            {
-                return await ErrorMessage.TextContentAsync() ?? string.Empty;
-            }
-            return string.Empty;
+            return await ErrorMessage.TextContentAsync();
         }
     }
 }
